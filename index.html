@@ -1,33 +1,1042 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindBoost - Your Personal Motivator</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VerdantPulse | Renewable Energy & Smart Grid Portal</title>
+  <meta name="description" content="Next-Gen Renewable Energy Portal & Clean Tech Simulator. Developed by Yogesh Chendel for College Internship Project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
-<body id="body">
+<body data-theme="light">
+  <!-- Navigation Header -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a href="#" class="brand-logo" aria-label="VerdantPulse Homepage">
+        <div class="logo-icon-wrap">
+          <svg class="logo-svg" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 2L5 9V17C5 24.8 10.6 32 18 34C25.4 32 31 24.8 31 17V9L18 2Z" fill="url(#logo-grad)" stroke="#10b981" stroke-width="1.5"/>
+            <path d="M19.5 8L11.5 19H17.5L16.5 28L24.5 17H18.5L19.5 8Z" fill="#f59e0b" stroke="#fef08a" stroke-width="0.8"/>
+            <defs>
+              <linearGradient id="logo-grad" x1="5" y1="2" x2="31" y2="34" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#10b981" stop-opacity="0.9"/>
+                <stop offset="1" stop-color="#059669" stop-opacity="0.95"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-title">Verdant<span class="accent-text">Pulse</span></span>
+          <span class="brand-sub">Renewable Energy Portal</span>
+        </div>
+      </a>
 
-    <div class="container text-center mt-5">
-        <h1 class="title">MindBoost</h1>
-        <h3>How are you feeling today?</h3>
-        
-        <select id="mindset" class="form-select w-50 mx-auto mt-3">
-            <option value="">-- Select your mindset --</option>
-            <option value="happy">Happy 😊</option>
-            <option value="sad">Sad 😢</option>
-            <option value="stressed">Stressed 😣</option>
-            <option value="confused">Confused 🤔</option>
-            <option value="motivated">Motivated 🚀</option>
-        </select>
-        
-        <button class="btn btn-primary mt-3" onclick="getMotivation()">Get Motivation</button>
+      <!-- Navigation Links -->
+      <nav class="main-nav" id="mainNav">
+        <ul class="nav-list">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#sectors" class="nav-link">Sectors</a></li>
+          <li><a href="#grid-simulator" class="nav-link">Live Grid Sim</a></li>
+          <li><a href="#calculator" class="nav-link">Solar ROI Calc</a></li>
+          <li><a href="#carbon-audit" class="nav-link">Carbon Audit</a></li>
+          <li><a href="#internship-spotlight" class="nav-link">Project Dossier</a></li>
+        </ul>
+      </nav>
 
-        <div id="output" class="mt-4"></div>
+      <!-- Action buttons -->
+      <div class="header-controls">
+        <button id="themeToggle" class="btn-icon" aria-label="Toggle dark/light theme" title="Toggle Light/Dark Theme">
+          <span class="icon-sun">☀️</span>
+          <span class="icon-moon">🌙</span>
+        </button>
+        <a href="#calculator" class="btn btn-primary btn-sm hide-mobile">
+          <span>Calculate Savings</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="hamburger-menu" id="hamburgerBtn" aria-label="Toggle navigation menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="hero-glow-blob blob-1"></div>
+      <div class="hero-glow-blob blob-2"></div>
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-pill-badge">
+            <span class="dot-live"></span>
+            <span>Sustainable Energy Architecture &bull; 2026 Academic Edition</span>
+          </div>
+          <h1 class="hero-heading">
+            Powering Tomorrow With <span class="gradient-text">Infinite Clean Energy</span>
+          </h1>
+          <p class="hero-subtext">
+            An advanced interactive academic portal designed by <strong>Yogesh Chendel</strong> to simulate distributed microgrids, calculate residential solar yields, and explore next-generation clean energy storage solutions.
+          </p>
+          <div class="hero-cta-group">
+            <a href="#grid-simulator" class="btn btn-primary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+              <span>Launch Virtual Grid</span>
+            </a>
+            <a href="#calculator" class="btn btn-secondary">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="2" width="16" height="20" rx="2"/><line x1="8" y1="6" x2="16" y2="6"/><line x1="16" y1="14" x2="16" y2="18"/><path d="M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M8 18h.01M12 18h.01"/></svg>
+              <span>Solar Savings Calculator</span>
+            </a>
+          </div>
+
+          <div class="hero-metrics-strip">
+            <div class="metric-card">
+              <div class="metric-num-wrap">
+                <span class="metric-value counter" data-target="42.8">0</span><span class="metric-unit">%</span>
+              </div>
+              <span class="metric-label">Global Renewable Mix</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <div class="metric-num-wrap">
+                <span class="metric-value counter" data-target="1840">0</span><span class="metric-unit">GW</span>
+              </div>
+              <span class="metric-label">Installed Solar Capacity</span>
+            </div>
+            <div class="metric-divider"></div>
+            <div class="metric-card">
+              <div class="metric-num-wrap">
+                <span class="metric-value counter" data-target="3.2">0</span><span class="metric-unit">Gt</span>
+              </div>
+              <span class="metric-label">Annual CO₂ Abated</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Interactive Visual Graphic -->
+        <div class="hero-visual">
+          <div class="glass-orb-container">
+            <div class="floating-ring ring-outer"></div>
+            <div class="floating-ring ring-middle"></div>
+            <div class="clean-core-card">
+              <div class="core-header">
+                <span class="status-indicator"></span>
+                <span>Active Microgrid Telemetry</span>
+                <span class="timestamp" id="liveTime">09:30:00 AM</span>
+              </div>
+              <div class="core-gauges">
+                <div class="mini-gauge">
+                  <div class="gauge-ring solar-ring">
+                    <span class="gauge-number" id="heroSolarVal">84%</span>
+                  </div>
+                  <span class="gauge-title">Solar PV</span>
+                </div>
+                <div class="mini-gauge">
+                  <div class="gauge-ring wind-ring">
+                    <span class="gauge-number" id="heroWindVal">68%</span>
+                  </div>
+                  <span class="gauge-title">Wind Farms</span>
+                </div>
+                <div class="mini-gauge">
+                  <div class="gauge-ring storage-ring">
+                    <span class="gauge-number" id="heroStorageVal">92%</span>
+                  </div>
+                  <span class="gauge-title">BESS Storage</span>
+                </div>
+              </div>
+              <div class="core-energy-flow">
+                <div class="flow-line">
+                  <span class="flow-label">Clean Generation:</span>
+                  <span class="flow-stat text-success" id="heroTotalGen">4,820 MW</span>
+                </div>
+                <div class="flow-line">
+                  <span class="flow-label">Carbon Offset:</span>
+                  <span class="flow-stat text-warning" id="heroCarbonOff">3,450 Tons/hr</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Floating badges around orb -->
+            <div class="floating-pill pill-top-left">
+              <span class="pill-icon">☀️</span>
+              <div>
+                <strong>Perovskite PV</strong>
+                <small>29.8% Cell Efficiency</small>
+              </div>
+            </div>
+            <div class="floating-pill pill-bottom-right">
+              <span class="pill-icon">⚡</span>
+              <div>
+                <strong>Green Hydrogen</strong>
+                <small>Zero Local Emissions</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Energy Sectors Explorer -->
+    <section class="section-padding sectors-section" id="sectors">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Core Technologies</span>
+          <h2 class="section-title">Renewable Energy Pillars</h2>
+          <p class="section-lead">
+            Explore the foundational pillars driving the global decarbonization roadmap. Click any sector to view in-depth engineering mechanics, thermodynamic efficiencies, and environmental balance.
+          </p>
+          <!-- Category Filter Tabs -->
+          <div class="filter-tab-bar" id="sectorFilterBar">
+            <button class="filter-btn active" data-filter="all">All Sectors</button>
+            <button class="filter-btn" data-filter="solar">Solar PV &amp; CSP</button>
+            <button class="filter-btn" data-filter="wind">Wind Energy</button>
+            <button class="filter-btn" data-filter="hydro">Hydro &amp; Ocean</button>
+            <button class="filter-btn" data-filter="storage">Biomass &amp; Storage</button>
+          </div>
+        </div>
+
+        <div class="sectors-grid" id="sectorsGrid">
+          <!-- Dynamically populated by JS for rich details -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Sector Details Modal -->
+    <div class="modal-overlay" id="sectorModal" role="dialog" aria-modal="true" aria-hidden="true">
+      <div class="modal-card">
+        <button class="modal-close-btn" id="closeSectorModal" aria-label="Close dialog">&times;</button>
+        <div class="modal-body" id="sectorModalContent">
+          <!-- Dynamic Sector Detailed Spec View -->
+        </div>
+      </div>
     </div>
 
-    <script src="app.js"></script>
+    <!-- Live Grid Simulator Section -->
+    <section class="section-padding grid-sim-section" id="grid-simulator">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Interactive Simulation Engine</span>
+          <h2 class="section-title">Smart Grid &amp; Distributed Microgrid Simulator</h2>
+          <p class="section-lead">
+            Simulate 24-hour dispatch dynamics across a hybrid renewable microgrid. Adjust weather parameters, peak demand times, and watch the automated Battery Energy Storage System (BESS) balance fluctuating load.
+          </p>
+        </div>
+
+        <div class="sim-dashboard-grid">
+          <!-- Control Panel -->
+          <div class="sim-control-panel glass-panel">
+            <h3 class="panel-heading">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+              Grid Dispatch Parameters
+            </h3>
+
+            <!-- Time of Day Slider -->
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <label for="timeSlider">Time of Day (Diurnal Cycle):</label>
+                <span class="control-display-val" id="timeDisplay">12:00 PM (Noon)</span>
+              </div>
+              <input type="range" id="timeSlider" min="0" max="23" value="12" step="1" class="custom-slider">
+              <div class="slider-ticks">
+                <span>00:00</span>
+                <span>06:00</span>
+                <span>12:00</span>
+                <span>18:00</span>
+                <span>23:00</span>
+              </div>
+            </div>
+
+            <!-- Weather Condition Radios -->
+            <div class="control-group">
+              <label class="control-title">Weather Condition &amp; Solar Irradiance:</label>
+              <div class="preset-pill-grid">
+                <button class="preset-pill active" data-weather="clear">☀️ Clear Sky</button>
+                <button class="preset-pill" data-weather="cloudy">⛅ Partial Clouds</button>
+                <button class="preset-pill" data-weather="stormy">🌧️ Stormy Rain</button>
+              </div>
+            </div>
+
+            <!-- Wind Velocity Slider -->
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <label for="windSlider">Wind Velocity:</label>
+                <span class="control-display-val" id="windDisplay">8.5 m/s (Fresh Breeze)</span>
+              </div>
+              <input type="range" id="windSlider" min="0" max="25" value="9" step="0.5" class="custom-slider">
+            </div>
+
+            <!-- Microgrid Load Demand -->
+            <div class="control-group">
+              <div class="control-label-wrap">
+                <label for="loadSlider">Community Demand Factor:</label>
+                <span class="control-display-val" id="loadDisplay">100% (Baseline)</span>
+              </div>
+              <input type="range" id="loadSlider" min="50" max="180" value="100" step="5" class="custom-slider">
+            </div>
+
+            <!-- Quick Auto-Play Cycle -->
+            <div class="sim-actions">
+              <button id="togglePlaySim" class="btn btn-outline w-100">
+                <span id="playSimIcon">▶</span>
+                <span id="playSimText">Auto-Play 24H Cycle</span>
+              </button>
+              <button id="resetSimBtn" class="btn btn-ghost w-100">Reset to Defaults</button>
+            </div>
+          </div>
+
+          <!-- Simulation Display & Visualization -->
+          <div class="sim-display-panel glass-panel">
+            <div class="sim-telemetry-header">
+              <div class="telemetry-pill">
+                <span class="dot-status active"></span>
+                <span>Grid Status: <strong id="gridHealthStatus">100% Carbon-Neutral</strong></span>
+              </div>
+              <div class="sim-frequency">
+                <span>Grid Frequency: <strong>50.02 Hz</strong></span>
+              </div>
+            </div>
+
+            <!-- Generation vs Demand Real-time Bars -->
+            <div class="generation-breakdown">
+              <div class="gen-bar-item">
+                <div class="gen-bar-header">
+                  <span class="gen-name">☀️ Solar PV Generation</span>
+                  <span class="gen-val" id="valSolarGen">380 MW</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill solar-fill" id="barSolarGen" style="width: 76%;"></div>
+                </div>
+              </div>
+
+              <div class="gen-bar-item">
+                <div class="gen-bar-header">
+                  <span class="gen-name">💨 Wind Farms (Offshore + Onshore)</span>
+                  <span class="gen-val" id="valWindGen">240 MW</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill wind-fill" id="barWindGen" style="width: 48%;"></div>
+                </div>
+              </div>
+
+              <div class="gen-bar-item">
+                <div class="gen-bar-header">
+                  <span class="gen-name">💧 Hydro Peaking Turbines</span>
+                  <span class="gen-val" id="valHydroGen">120 MW</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill hydro-fill" id="barHydroGen" style="width: 24%;"></div>
+                </div>
+              </div>
+
+              <div class="gen-bar-item">
+                <div class="gen-bar-header">
+                  <span class="gen-name">🔋 Battery Storage (BESS) Flow</span>
+                  <span class="gen-val" id="valBatteryGen">+50 MW (Charging)</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill battery-fill" id="barBatteryGen" style="width: 60%;"></div>
+                </div>
+              </div>
+
+              <div class="gen-bar-item demand-item">
+                <div class="gen-bar-header">
+                  <span class="gen-name">⚡ Total City Demand</span>
+                  <span class="gen-val" id="valDemandTotal">690 MW</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill demand-fill" id="barDemandTotal" style="width: 69%;"></div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Interactive 24H Diurnal Canvas Chart -->
+            <div class="chart-canvas-wrapper">
+              <div class="chart-header-row">
+                <h4>24-Hour Diurnal Dispatch Profile</h4>
+                <div class="legend-row">
+                  <span class="legend-chip"><span class="legend-color color-solar"></span> Solar</span>
+                  <span class="legend-chip"><span class="legend-color color-wind"></span> Wind</span>
+                  <span class="legend-chip"><span class="legend-color color-demand"></span> Demand</span>
+                  <span class="legend-chip"><span class="legend-color color-storage"></span> BESS SoC</span>
+                </div>
+              </div>
+              <canvas id="diurnalChart" width="600" height="240"></canvas>
+            </div>
+
+            <!-- Real-time insight notification box -->
+            <div class="sim-insight-box" id="simInsightBox">
+              <span class="insight-icon">💡</span>
+              <p class="insight-text" id="simInsightText">
+                Midday Peak: Solar generation exceeds base demand. Excess energy is routed into Utility Battery Storage &amp; Green Hydrogen Electrolyzers.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Solar ROI & Clean Energy Calculator -->
+    <section class="section-padding calculator-section" id="calculator">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Financial &amp; Ecological Feasibility</span>
+          <h2 class="section-title">Solar Rooftop Savings &amp; Yield Calculator</h2>
+          <p class="section-lead">
+            Input your location and electricity consumption to calculate technical sizing, system cost, government subsidies, payback timeline, and 25-year carbon sequestration.
+          </p>
+        </div>
+
+        <div class="calculator-card glass-panel">
+          <div class="calc-grid">
+            <!-- Calculator Inputs Form -->
+            <form id="solarCalculatorForm" class="calc-form" onsubmit="event.preventDefault();">
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="monthlyBill">Average Monthly Electric Bill:</label>
+                  <div class="input-with-symbol">
+                    <span class="input-symbol">₹</span>
+                    <input type="number" id="monthlyBill" min="500" max="50000" value="3500" step="100">
+                  </div>
+                  <span class="input-hint">Default ₹3,500/month (~380 kWh)</span>
+                </div>
+
+                <div class="form-group">
+                  <label for="rooftopArea">Available Shadow-free Roof Area:</label>
+                  <div class="input-with-symbol">
+                    <input type="number" id="rooftopArea" min="100" max="5000" value="450" step="25">
+                    <span class="input-unit">Sq. Ft.</span>
+                  </div>
+                  <span class="input-hint">~100 sq.ft required per 1 kW system</span>
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="solarZone">Geographical Solar Irradiance Zone:</label>
+                  <select id="solarZone" class="custom-select">
+                    <option value="5.5" selected>High Sunshine (North &amp; West India, 5.5 peak sun hrs/day)</option>
+                    <option value="4.8">Moderate Sunshine (Central &amp; South India, 4.8 hrs/day)</option>
+                    <option value="4.0">Hilly / Coastal Monsoon Region (4.0 hrs/day)</option>
+                    <option value="5.0">International Sunbelt Standard (5.0 hrs/day)</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="panelType">Photovoltaic Technology Tier:</label>
+                  <select id="panelType" class="custom-select">
+                    <option value="1.0" selected>Mono PERC Half-Cut (21.5% Efficiency - Best ROI)</option>
+                    <option value="1.15">TOPCon / Heterojunction (23.2% Efficiency - Premium)</option>
+                    <option value="0.9">Polycrystalline Standard (18% Efficiency - Economy)</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-row checkbox-row">
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="includeSubsidy" checked>
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-text">Apply PM Surya Ghar / National Rooftop Subsidy (~₹78,000 max for ≤3kW)</span>
+                </label>
+                <label class="custom-checkbox-label">
+                  <input type="checkbox" id="includeBattery">
+                  <span class="checkbox-box"></span>
+                  <span class="checkbox-text">Include 5 kWh LiFePO₄ Battery Storage Backup</span>
+                </label>
+              </div>
+
+              <button type="button" id="recalcBtn" class="btn btn-primary w-100">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                <span>Recalculate Yield &amp; Payback</span>
+              </button>
+            </form>
+
+            <!-- Calculator Results Display -->
+            <div class="calc-results-panel">
+              <div class="results-header">
+                <h3>Recommended Solar Installation</h3>
+                <span class="recommended-badge" id="resSysSize">3.5 kWp System</span>
+              </div>
+
+              <div class="results-stats-grid">
+                <div class="res-stat-card">
+                  <span class="res-icon">⚡</span>
+                  <div class="res-details">
+                    <span class="res-label">Annual Generation</span>
+                    <strong class="res-value" id="resAnnualGen">5,110 kWh</strong>
+                    <small class="res-sub">~14 kWh daily average</small>
+                  </div>
+                </div>
+
+                <div class="res-stat-card">
+                  <span class="res-icon">💰</span>
+                  <div class="res-details">
+                    <span class="res-label">Annual Electricity Savings</span>
+                    <strong class="res-value text-success" id="resAnnualSavings">₹40,880</strong>
+                    <small class="res-sub">At ₹8.0/unit tariff</small>
+                  </div>
+                </div>
+
+                <div class="res-stat-card">
+                  <span class="res-icon">🏷️</span>
+                  <div class="res-details">
+                    <span class="res-label">Estimated Net Cost</span>
+                    <strong class="res-value" id="resNetCost">₹1,32,000</strong>
+                    <small class="res-sub" id="resSubsidyDeduction">After ₹78,000 Govt subsidy</small>
+                  </div>
+                </div>
+
+                <div class="res-stat-card">
+                  <span class="res-icon">⏱️</span>
+                  <div class="res-details">
+                    <span class="res-label">Capital Payback Period</span>
+                    <strong class="res-value text-warning" id="resPayback">3.2 Years</strong>
+                    <small class="res-sub">Remaining 21.8 yrs free electricity</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Ecological Offsets Summary -->
+              <div class="eco-impact-box">
+                <h4>25-Year Environmental Impact Equivalents:</h4>
+                <div class="eco-pills-row">
+                  <div class="eco-pill">
+                    <span class="eco-emoji">🌳</span>
+                    <div>
+                      <strong id="resTreesCount">195</strong>
+                      <span>Trees Planted</span>
+                    </div>
+                  </div>
+                  <div class="eco-pill">
+                    <span class="eco-emoji">🚗</span>
+                    <div>
+                      <strong id="resCarMiles">1,02,000</strong>
+                      <span>Km Car Offset</span>
+                    </div>
+                  </div>
+                  <div class="eco-pill">
+                    <span class="eco-emoji">🏭</span>
+                    <div>
+                      <strong id="resCo2Offset">102.2 Tons</strong>
+                      <span>CO₂ Avoided</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="calc-card-footer">
+                <button class="btn btn-outline btn-sm w-100" id="printAuditReportBtn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+                  <span>Download / Print Feasibility Summary</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Carbon Footprint Self-Audit -->
+    <section class="section-padding carbon-section" id="carbon-audit">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Personal Sustainability Audit</span>
+          <h2 class="section-title">Household Carbon Footprint Evaluator</h2>
+          <p class="section-lead">
+            Answer 4 quick lifestyle parameters to audit your annual emission score and receive a personalized clean-energy action roadmap.
+          </p>
+        </div>
+
+        <div class="carbon-wizard glass-panel">
+          <div class="wizard-stepper" id="wizardStepper">
+            <div class="step-dot active" data-step="1">1</div>
+            <div class="step-connector"></div>
+            <div class="step-dot" data-step="2">2</div>
+            <div class="step-connector"></div>
+            <div class="step-dot" data-step="3">3</div>
+            <div class="step-connector"></div>
+            <div class="step-dot" data-step="4">4</div>
+          </div>
+
+          <div class="wizard-slides-container">
+            <!-- Step 1: Electricity Source -->
+            <div class="wizard-step active" id="wizardStep1">
+              <h3 class="step-question">1. What is the primary source of your home electricity?</h3>
+              <div class="option-cards-grid">
+                <label class="option-card">
+                  <input type="radio" name="energy_src" value="coal" checked>
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🔌</span>
+                    <strong>Standard Thermal Grid</strong>
+                    <p>Conventional utility grid reliant mostly on coal and gas.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="energy_src" value="hybrid">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🌤️</span>
+                    <strong>Partial Solar / Green Tariff</strong>
+                    <p>Utility green tariff subscription or partial rooftop solar.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="energy_src" value="solar100">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">☀️</span>
+                    <strong>100% Rooftop Solar + Battery</strong>
+                    <p>Independent microgrid with battery storage or net zero metering.</p>
+                  </div>
+                </label>
+              </div>
+              <div class="wizard-nav">
+                <div></div>
+                <button class="btn btn-primary next-step-btn" data-next="2">Next Step &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Commuting & Mobility -->
+            <div class="wizard-step" id="wizardStep2">
+              <h3 class="step-question">2. How do you predominantly commute each day?</h3>
+              <div class="option-cards-grid">
+                <label class="option-card">
+                  <input type="radio" name="mobility_src" value="petrol" checked>
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🚗</span>
+                    <strong>Petrol / Diesel Private Car</strong>
+                    <p>Internal combustion vehicle with single-occupant commute.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="mobility_src" value="transit">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🚆</span>
+                    <strong>Metro / Public Transit / Carpool</strong>
+                    <p>Shared electric rail, urban metro, or regular bus routes.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="mobility_src" value="ev">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">⚡</span>
+                    <strong>Electric Vehicle (EV) / E-Bike</strong>
+                    <p>Zero tailpipe emission electric scooter, car, or bicycle.</p>
+                  </div>
+                </label>
+              </div>
+              <div class="wizard-nav">
+                <button class="btn btn-ghost prev-step-btn" data-prev="1">&larr; Back</button>
+                <button class="btn btn-primary next-step-btn" data-next="3">Next Step &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 3: Heating & Cooling -->
+            <div class="wizard-step" id="wizardStep3">
+              <h3 class="step-question">3. What is your cooling &amp; water heating mechanism?</h3>
+              <div class="option-cards-grid">
+                <label class="option-card">
+                  <input type="radio" name="hvac_src" value="standard" checked>
+                  <div class="option-card-inner">
+                    <span class="card-emoji">❄️</span>
+                    <strong>Standard AC &amp; Electric Geyser</strong>
+                    <p>Non-inverter ACs and resistive heating elements.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="hvac_src" value="inverter">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🌟</span>
+                    <strong>5-Star Inverter AC &amp; Solar Water Heater</strong>
+                    <p>Variable speed compressor and rooftop thermal tubes.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="hvac_src" value="heatpump">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🔄</span>
+                    <strong>Geothermal / Smart Heat Pump</strong>
+                    <p>Ultra high COP heat pump with smart ambient thermostat.</p>
+                  </div>
+                </label>
+              </div>
+              <div class="wizard-nav">
+                <button class="btn btn-ghost prev-step-btn" data-prev="2">&larr; Back</button>
+                <button class="btn btn-primary next-step-btn" data-next="4">Next Step &rarr;</button>
+              </div>
+            </div>
+
+            <!-- Step 4: Waste & Diet Habits -->
+            <div class="wizard-step" id="wizardStep4">
+              <h3 class="step-question">4. What describes your food waste &amp; dietary lifestyle?</h3>
+              <div class="option-cards-grid">
+                <label class="option-card">
+                  <input type="radio" name="lifestyle_src" value="high" checked>
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🥩</span>
+                    <strong>High Meat &amp; Packaged Foods</strong>
+                    <p>Daily meat, high processed food packaging, low composting.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="lifestyle_src" value="balanced">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🥗</span>
+                    <strong>Balanced Regional Vegetarian / Mixed</strong>
+                    <p>Locally sourced fresh produce, low food wastage.</p>
+                  </div>
+                </label>
+                <label class="option-card">
+                  <input type="radio" name="lifestyle_src" value="plant">
+                  <div class="option-card-inner">
+                    <span class="card-emoji">🌱</span>
+                    <strong>Plant-Forward &amp; Zero Waste Composting</strong>
+                    <p>Home composting, kitchen biogas, minimal single-use plastics.</p>
+                  </div>
+                </label>
+              </div>
+              <div class="wizard-nav">
+                <button class="btn btn-ghost prev-step-btn" data-prev="3">&larr; Back</button>
+                <button class="btn btn-primary" id="calculateAuditBtn">View Carbon Audit Score ✨</button>
+              </div>
+            </div>
+
+            <!-- Step 5: Score Result -->
+            <div class="wizard-step" id="wizardStepResult">
+              <div class="audit-result-card">
+                <div class="result-badge-icon" id="auditGradeIcon">🌿</div>
+                <h3 class="result-title" id="auditTitle">Green Transition Leader</h3>
+                <div class="emission-number-wrap">
+                  <span class="emission-val" id="auditCo2Tons">2.1</span>
+                  <span class="emission-unit">Tons CO₂e / Year</span>
+                </div>
+                <p class="emission-bench" id="auditBenchmark">
+                  62% lower than the national average footprint of 5.5 tons CO₂e!
+                </p>
+
+                <div class="audit-recommendations">
+                  <h4>Recommended Next Steps for Your Profile:</h4>
+                  <ul class="rec-list" id="auditRecList">
+                    <li>Install a 3 kW rooftop solar setup to offset remaining grid electricity.</li>
+                    <li>Switch 2-wheeler commute to an electric scooter to save 450 kg CO₂ annually.</li>
+                    <li>Install a solar water heating collector to replace electric geysers.</li>
+                  </ul>
+                </div>
+
+                <div class="result-actions">
+                  <button class="btn btn-outline" id="retakeAuditBtn">Retake Audit</button>
+                  <a href="#calculator" class="btn btn-primary">Calculate Solar Offset</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- College Project & Internship Showcase Dossier -->
+    <section class="section-padding internship-section" id="internship-spotlight">
+      <div class="container">
+        <div class="internship-badge-header text-center">
+          <span class="section-kicker">Academic Portfolio &amp; Engineering Credentials</span>
+          <h2 class="section-title">College Internship Project Dossier</h2>
+          <p class="section-lead">
+            Curated and engineered by <strong>Yogesh Chendel</strong> as part of the specialized engineering internship curriculum on renewable energy systems, microgrid analytics, and digital decarbonization architectures.
+          </p>
+        </div>
+
+        <div class="dossier-card glass-panel">
+          <div class="dossier-header-bar">
+            <div class="student-profile">
+              <div class="avatar-shield">YC</div>
+              <div>
+                <h3 class="student-name">Yogesh Chendel</h3>
+                <p class="student-subtitle">Renewable Energy Engineering Intern &bull; Project Author</p>
+              </div>
+            </div>
+            <div class="project-tags">
+              <span class="ptag">Web Technologies</span>
+              <span class="ptag">Smart Grid Modeling</span>
+              <span class="ptag">CleanTech Analytics</span>
+              <span class="ptag">UI/UX Engineering</span>
+            </div>
+          </div>
+
+          <div class="dossier-body-grid">
+            <div class="dossier-col">
+              <h4>🎯 Project Objectives &amp; Scope</h4>
+              <ul class="dossier-list">
+                <li><strong>Interactive Clean Energy Literacy:</strong> Demystifying solar, wind, hydro, and hydrogen generation physics for end users and academic peers.</li>
+                <li><strong>Real-time Diurnal Grid Modeling:</strong> Simulating 24-hour supply/demand curve fluctuations, duck curve mitigation, and BESS ramp rates.</li>
+                <li><strong>Solar Economic Feasibility:</strong> Empowering residential and institutional users with payback period calculations, subsidies, and lifetime ROI projections.</li>
+                <li><strong>Empirical Carbon Accounting:</strong> Calculating quantitative carbon offsets and equivalence metrics (trees planted, ICE km averted).</li>
+              </ul>
+            </div>
+
+            <div class="dossier-col">
+              <h4>🛠️ Technologies &amp; Architecture</h4>
+              <div class="tech-stack-badges">
+                <span class="tech-badge"><strong>HTML5</strong> Semantic Architecture</span>
+                <span class="tech-badge"><strong>CSS3</strong> Modern Glassmorphism &amp; Light Theme</span>
+                <span class="tech-badge"><strong>JavaScript</strong> ES6+ Modular Codebase</span>
+                <span class="tech-badge"><strong>HTML5 Canvas API</strong> 24H Diurnal Curve Engine</span>
+                <span class="tech-badge"><strong>Clean UI/UX</strong> Vibrant Light Theme Default</span>
+                <span class="tech-badge"><strong>Three-File Project</strong> Self-contained (HTML/CSS/JS)</span>
+              </div>
+
+              <div class="project-metrics-callout">
+                <div class="callout-item">
+                  <span class="callout-num">6+</span>
+                  <span class="callout-lbl">Renewable Energy Modules</span>
+                </div>
+                <div class="callout-item">
+                  <span class="callout-num">100%</span>
+                  <span class="callout-lbl">Responsive &amp; Mobile-Optimized</span>
+                </div>
+                <div class="callout-item">
+                  <span class="callout-num">A+</span>
+                  <span class="callout-lbl">Academic Presentation Grade</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Synopsis Expandable -->
+          <div class="project-synopsis-box">
+            <div class="synopsis-header" id="toggleSynopsisBtn">
+              <span>📖 View Full Academic Abstract &amp; Mathematical Formulations</span>
+              <span class="toggle-arrow" id="synopsisArrow">&darr;</span>
+            </div>
+            <div class="synopsis-content" id="synopsisContent">
+              <p>
+                <strong>Abstract:</strong> Decentralized renewable energy penetration poses stability challenges to synchronous utility grids due to intermittency. This project, conceived and engineered by Yogesh Chendel, bridges academic theory with practical application by delivering a unified digital portal featuring:
+              </p>
+              <ol class="synopsis-steps">
+                <li>
+                  <strong>Photovoltaic Yield Equation:</strong> 
+                  <code>E = A &times; r &times; H &times; PR</code> (where <em>A</em> = array area, <em>r</em> = panel efficiency, <em>H</em> = annual average solar radiation on tilted panels, and <em>PR</em> = Performance Ratio &approx; 0.75 &ndash; 0.80).
+                </li>
+                <li>
+                  <strong>Wind Power Aerodynamic Extraction:</strong> 
+                  <code>P = 0.5 &times; &rho; &times; A &times; v&sup3; &times; C<sub>p</sub></code>, bounded by the Betz limit (<em>C<sub>p,max</sub></em> &approx; 59.3%).
+                </li>
+                <li>
+                  <strong>Battery Energy Storage Dispatch:</strong> Real-time load-following algorithm calculating charge state (<em>SoC<sub>t+1</sub> = SoC<sub>t</sub> + &eta;<sub>ch</sub> &middot; P<sub>excess</sub> &middot; &Delta;t</em>) during peak solar hours and discharge replenishment during twilight demand peaks.
+                </li>
+              </ol>
+              <p class="synopsis-author-sign">
+                <em>Submitted for College Internship Assessment &bull; Supervisor Review Ready</em>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Global Policies & News Feed -->
+    <section class="section-padding policies-section" id="policies">
+      <div class="container">
+        <div class="section-header text-center">
+          <span class="section-kicker">Knowledge &amp; Policy Hub</span>
+          <h2 class="section-title">Government Clean Energy Frameworks</h2>
+          <p class="section-lead">
+            Key government initiatives, subsidy schemes, and international green energy targets supporting rapid decarbonization.
+          </p>
+        </div>
+
+        <div class="policies-grid">
+          <article class="policy-card glass-panel">
+            <div class="policy-icon">☀️</div>
+            <span class="policy-tag">National Scheme</span>
+            <h3>PM Surya Ghar: Muft Bijli Yojana</h3>
+            <p>
+              Subsidies up to ₹78,000 for residential rooftop solar systems up to 3 kW capacity, targeting 1 crore households with 300 free monthly units.
+            </p>
+            <a href="#calculator" class="policy-link">Test in ROI Calculator &rarr;</a>
+          </article>
+
+          <article class="policy-card glass-panel">
+            <div class="policy-icon">💨</div>
+            <span class="policy-tag">Grid Integration</span>
+            <h3>Green Energy Open Access Rules</h3>
+            <p>
+              Reduced transaction threshold for commercial and industrial consumers from 1 MW down to 100 kW, accelerating industrial clean adoption.
+            </p>
+            <a href="#grid-simulator" class="policy-link">Explore Grid Simulator &rarr;</a>
+          </article>
+
+          <article class="policy-card glass-panel">
+            <div class="policy-icon">⚡</div>
+            <span class="policy-tag">Future Fuel</span>
+            <h3>National Green Hydrogen Mission</h3>
+            <p>
+              Targeting 5 Million Metric Tonnes (MMT) annual production of green hydrogen by 2030, supported by electrolyzer manufacturing PLI incentives.
+            </p>
+            <a href="#sectors" class="policy-link">Learn About Hydrogen &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive FAQ & Community Query Form -->
+    <section class="section-padding faq-section" id="faq">
+      <div class="container">
+        <div class="faq-layout-grid">
+          <div class="faq-accordion-col">
+            <span class="section-kicker">Common Inquiries</span>
+            <h2 class="section-title">Frequently Asked Questions</h2>
+            <div class="accordion-group" id="faqAccordion">
+              <div class="accordion-item active">
+                <button class="accordion-trigger">
+                  <span>How long do modern solar photovoltaic panels last?</span>
+                  <span class="acc-chevron">&plus;</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Most tier-1 mono-crystalline silicon panels feature performance warranties of 25 to 30 years. Modern panels degrade at less than 0.5% per year, meaning they still operate at over 85% of their original capacity after 25 years.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span>What is the difference between On-Grid and Off-Grid solar?</span>
+                  <span class="acc-chevron">&plus;</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    On-Grid systems connect to your local utility provider with a bi-directional net meter, feeding surplus solar power into the grid without requiring expensive batteries. Off-Grid systems rely on battery energy storage banks to operate completely independent of the utility grid.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span>How does wind power work during low-wind seasons?</span>
+                  <span class="acc-chevron">&plus;</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Modern utility wind turbines utilize variable pitch control to maximize aerodynamic lift across varying wind speeds (cut-in around 3 m/s). Hybrid microgrids pair wind with solar and pumped storage hydro so that nocturnal winds compensate for nighttime solar downtime.
+                  </p>
+                </div>
+              </div>
+
+              <div class="accordion-item">
+                <button class="accordion-trigger">
+                  <span>How does this portal calculate carbon emission offsets?</span>
+                  <span class="acc-chevron">&plus;</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    We apply standard emission factors from the Central Electricity Authority (CEA) and International Energy Agency (IEA), where each 1 kWh generated from coal thermal power generates roughly 0.82 kg of CO₂ equivalent. Replacing this with solar or wind offsets this exact burden.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project Feedback / Contact Form -->
+          <div class="faq-form-col glass-panel">
+            <span class="badge-tag">Academic Internship Feedback</span>
+            <h3>Submit Feedback or Inquiries</h3>
+            <p class="form-desc">
+              Have questions regarding this renewable energy research project or suggestions for Yogesh Chendel? Send a note below:
+            </p>
+            <form id="contactForm" class="contact-form" onsubmit="event.preventDefault();">
+              <div class="form-group">
+                <label for="userName">Your Full Name:</label>
+                <input type="text" id="userName" placeholder="e.g. Professor Sharma / Evaluator" required>
+              </div>
+              <div class="form-group">
+                <label for="userEmail">Email Address:</label>
+                <input type="email" id="userEmail" placeholder="e.g. reviewer@college.edu" required>
+              </div>
+              <div class="form-group">
+                <label for="userRole">Your Affiliation:</label>
+                <select id="userRole" class="custom-select">
+                  <option value="faculty">College Faculty / Evaluator</option>
+                  <option value="student">Student / Research Peer</option>
+                  <option value="industry">Industry Professional</option>
+                  <option value="enthusiast">Clean Energy Enthusiast</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="userMsg">Comments / Assessment Notes:</label>
+                <textarea id="userMsg" rows="3" placeholder="Provide feedback or ask questions on this project implementation..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary w-100" id="submitFeedbackBtn">
+                <span>Submit Feedback &amp; Review</span>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+              </button>
+            </form>
+            <div class="form-toast" id="formToast" style="display: none;">
+              ✅ Thank you! Your feedback has been recorded in the local project audit register.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-top-row">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon-wrap sm">
+              <svg class="logo-svg" viewBox="0 0 36 36" fill="none">
+                <path d="M18 2L5 9V17C5 24.8 10.6 32 18 34C25.4 32 31 24.8 31 17V9L18 2Z" fill="#10b981"/>
+                <path d="M19.5 8L11.5 19H17.5L16.5 28L24.5 17H18.5L19.5 8Z" fill="#f59e0b"/>
+              </svg>
+            </div>
+            <span class="brand-title">Verdant<span class="accent-text">Pulse</span></span>
+          </div>
+          <p class="footer-mission">
+            Advancing educational clean technology access, renewable distributed generation, and open-source climate modeling.
+          </p>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#sectors">Renewable Sectors</a></li>
+            <li><a href="#grid-simulator">Grid Simulator</a></li>
+            <li><a href="#calculator">Solar ROI Calculator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Academic Project</h4>
+          <ul>
+            <li><a href="#internship-spotlight">Project Author Dossier</a></li>
+            <li><a href="#carbon-audit">Carbon Footprint Audit</a></li>
+            <li><a href="#policies">Government Policies</a></li>
+            <li><a href="#faq">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-links-group">
+          <h4>Project Author</h4>
+          <p class="author-blurb">
+            <strong>Yogesh Chendel</strong><br>
+            College Internship Project<br>
+            Renewable Energy &amp; Smart Grid Systems<br>
+            <span class="year-badge">Academic Year 2026</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="footer-bottom-bar">
+        <p>&copy; 2026 VerdantPulse. Designed &amp; Developed by <strong>Yogesh Chendel</strong> for College Internship Project. All calculations based on standard CEA/IRENA guidelines.</p>
+        <div class="footer-socials">
+          <button class="footer-pill-btn" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr; Back to Top</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Only single JS file as requested -->
+  <script src="app.js"></script>
 </body>
 </html>
